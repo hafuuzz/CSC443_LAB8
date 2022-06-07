@@ -10,16 +10,14 @@
 
 <?php
 include 'conn.php';
-$conn = mysqli_connect("root");
-mysqli_select_db("my_db", $conn);
 
 $sql="insert into user (first_name, last_name, email, pass_word)
 values ('$_POST[firstname]','$_POST[lastname]','$_POST[email]','$_POST[password]','$_POST[reg_date]')";
-@@ -20,7 +18,6 @@
+    if (!mysqli_query($conn, $sql))
+    {
         die('Error: ' .mysqli_error());
     }
     echo "1 record successfully added...";
-    mysqli_close($conn)
 ?>
 </body>
-</html> 
+</html>
